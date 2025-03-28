@@ -6,37 +6,49 @@
     <title>Nosso Amor</title>
     <style>
         body {
-            background-color: #111;
+            background-color: #0d0d0d;
             color: #fff;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             text-align: center;
             margin: 0;
-            padding: 0;
-        }
-        .slideshow {
-            max-width: 500px;
-            margin: 20px auto;
-            position: relative;
+            padding: 20px;
         }
         .slides {
             display: none;
-            width: 100%;
-            border-radius: 15px;
+            max-width: 80%;
+            height: auto;
+            border: 5px solid #e60026;
+            border-radius: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 20px #e60026;
         }
         .contador {
-            font-size: 20px;
+            font-size: 24px;
             margin-top: 20px;
+            color: #ff4d4d;
         }
         .texto-romantico {
-            margin: 30px auto;
-            font-size: 18px;
-            max-width: 600px;
+            margin: 40px auto;
+            font-size: 20px;
+            max-width: 700px;
+            color: #fff;
             padding: 0 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid #e60026;
+            animation: digita 6s steps(50, end), pisca 0.7s step-end infinite alternate;
+        }
+        @keyframes digita {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes pisca {
+            50% { border-color: transparent; }
         }
     </style>
 </head>
 <body>
-    <h1>Eu te amo há:</h1>
+    <h1 style="color:#ff1a4b;">Eu te amo há:</h1>
     <div class="contador" id="contador"></div>
 
     <div class="slideshow">
@@ -48,8 +60,12 @@
         Cada momento ao seu lado é um presente que a vida me deu. O seu sorriso ilumina os meus dias, e o seu abraço é o meu lugar favorito no mundo. Não importa quanto tempo passe, meu amor por você só cresce, se fortalece e se torna mais bonito. Obrigado por fazer parte da minha vida. Te amo para sempre!
     </div>
 
+    <audio autoplay loop>
+        <source src="music.mp3" type="audio/mp3">
+        Seu navegador não suporta áudio.
+    </audio>
+
     <script>
-        // Contador de tempo
         const inicio = new Date("2025-02-02T00:00:00");
         function atualizarContador() {
             const agora = new Date();
@@ -66,7 +82,6 @@
         setInterval(atualizarContador, 1000);
         atualizarContador();
 
-        // Slideshow
         let slideIndex = 0;
         function showSlides() {
             const slides = document.getElementsByClassName("slides");
@@ -76,7 +91,7 @@
             slideIndex++;
             if (slideIndex > slides.length) { slideIndex = 1 }
             slides[slideIndex-1].style.display = "block";
-            setTimeout(showSlides, 3000); // troca a cada 3 segundos
+            setTimeout(showSlides, 3000);
         }
         showSlides();
     </script>
